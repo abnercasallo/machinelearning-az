@@ -33,6 +33,7 @@ X_test = sc_X.transform(X_test)
 """
 
 # Crear modelo de Regresión Lienal Simple con el conjunto de entrenamiento
+#No requerimos escalar, la librería misma lo hace.
 from sklearn.linear_model import LinearRegression
 regression = LinearRegression()
 regression.fit(X_train, y_train)
@@ -40,17 +41,17 @@ regression.fit(X_train, y_train)
 # Predecir el conjunto de test
 y_pred = regression.predict(X_test)
 
-# Visualizar los resultados de entrenamiento
-plt.scatter(X_train, y_train, color = "red")
-plt.plot(X_train, regression.predict(X_train), color = "blue")
+# Visualizar los resultados de entrenamiento (matplotlib), sombrea todo
+plt.scatter(X_train, y_train, color = "red")    ####Hacemos los puntos (scatters)
+plt.plot(X_train, regression.predict(X_train), color = "blue") #Graficamos la regresión
 plt.title("Sueldo vs Años de Experiencia (Conjunto de Entrenamiento)")
 plt.xlabel("Años de Experiencia")
 plt.ylabel("Sueldo (en $)")
 plt.show()
 
-# Visualizar los resultados de test
+# Visualizar los resultados de test: vaamos a ver cómo la linea de regresión (azul) se ajusta con los datos de test
 plt.scatter(X_test, y_test, color = "red")
-plt.plot(X_train, regression.predict(X_train), color = "blue")
+plt.plot(X_train, regression.predict(X_train), color = "blue") 
 plt.title("Sueldo vs Años de Experiencia (Conjunto de Testing)")
 plt.xlabel("Años de Experiencia")
 plt.ylabel("Sueldo (en $)")

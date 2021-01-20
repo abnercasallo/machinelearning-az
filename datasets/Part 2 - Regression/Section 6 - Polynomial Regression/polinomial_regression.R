@@ -1,5 +1,5 @@
 # Regresión Polinómica
-
+setwd("D:/Git Hub-BEST/machinelearning-az/datasets/Part 2 - Regression/Section 6 - Polynomial Regression")
 # Importar el dataset
 dataset = read.csv('Position_Salaries.csv')
 dataset = dataset[, 2:3]
@@ -32,9 +32,9 @@ poly_reg = lm(formula = Salary ~ .,
 # install.packages("ggplot2")
 library(ggplot2)
 ggplot() +
-  geom_point(aes(x = dataset$Level , y = dataset$Salary),
+  geom_point(aes(x = dataset$Level , y = dataset$Salary),    #Relacionar variable y data directamente
              color = "red") +
-  geom_line(aes(x = dataset$Level, y = predict(lin_reg, newdata = dataset)),
+  geom_line(aes(x = dataset$Level, y = predict(lin_reg, newdata = dataset)),  #predict con linear regression
             color = "blue") +
   ggtitle("Predicción lineal del suedlo en función del nivel del empleado") +
   xlab("Nivel del empleado") +

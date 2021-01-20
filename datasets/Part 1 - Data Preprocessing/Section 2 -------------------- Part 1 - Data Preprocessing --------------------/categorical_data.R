@@ -4,9 +4,9 @@ dataset = read.csv('Data.csv', stringsAsFactors = F)
 
 str(dataset)
 # Codificar las variables categóricas
-dataset$Country = factor(dataset$Country,
+dataset$Country = factor(dataset$Country,   #El factor no representa un número en sí, sino cateorías
                          levels = c("France", "Spain", "Germany"),
-                         labels = c(1, 2, 3))
+                         labels = c(1, 2, 3))     
 
 dataset$Purchased = factor(dataset$Purchased,
                            levels = c("No", "Yes"),

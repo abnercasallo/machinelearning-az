@@ -15,17 +15,18 @@ import pandas as pd
 
 # Importar el data set
 dataset = pd.read_csv('Position_Salaries.csv')
-X = dataset.iloc[:, 1:2].values
+X = dataset.iloc[:, 1:2].values #Si solo pones 1 es vector (yo: lista), si pones 1:2 da matriz.
 y = dataset.iloc[:, 2].values
 
 
 # Dividir el data set en conjunto de entrenamiento y conjunto de testing
+#No lo hará, la data es muy pequeña
 """
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 """
 
-# Escalado de variables
+# Escalado de variables (tampoco será necesario)
 """from sklearn.preprocessing import StandardScaler
 sc_X = StandardScaler()
 X_train = sc_X.fit_transform(X_train)
@@ -38,8 +39,8 @@ lin_reg.fit(X, y)
 
 # Ajustar la regresión polinómica con el dataset
 from sklearn.preprocessing import PolynomialFeatures
-poly_reg = PolynomialFeatures(degree = 4)
-X_poly = poly_reg.fit_transform(X)
+poly_reg = PolynomialFeatures(degree = 4)    #crea una variable con una función a la 4. Paso esencial
+X_poly = poly_reg.fit_transform(X)           #Botará la columna de indepenientes automáticamente
 lin_reg_2 = LinearRegression()
 lin_reg_2.fit(X_poly, y)
 
